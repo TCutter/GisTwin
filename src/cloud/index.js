@@ -13,6 +13,7 @@ class Cloud extends BaseScene {
     this._cloudUrl = opts.cloudUrl;
 
     this._webRtcApp = window.$WebRtcApp || {};
+    this._WebRtcApp.load(this._cloudUrl);
     this._webRtcApp.receivedMessagehandlerSet = this.dispatchEvent;
   }
 

@@ -11,11 +11,11 @@ class BaseCamera {
   /**
    * 平移
    */
-  gotoFeat() {}
+  goto() {}
 
-  lookAtFeat() {}
+  lookAt() {}
 
-  focusToFeat() {}
+  focusTo() {}
 
   /**
    * 相机姿态调整

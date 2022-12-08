@@ -66,7 +66,9 @@ class BaseScene extends EventDispatcher {
   /**
    * 获取图层
    */
-  getLayer() {}
+  getLayer(id) {
+    return this.layerList.find((layer) => layer.id === id);
+  }
 
   /**
    * 新增图层
@@ -98,7 +100,9 @@ class BaseScene extends EventDispatcher {
   /**
    * 场景相机获取
    */
-  getCamera() {}
+  getCamera(id) {
+    return this.cameraList.find((camera) => camera.id === id);
+  }
 
   /**
    * 场景相机应用

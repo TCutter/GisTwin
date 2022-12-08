@@ -7,7 +7,7 @@ import {
   BaseScene,
 } from "../baseClass";
 
-class Cloud extends BaseScene {
+class UE extends BaseScene {
   constructor(opts = {}) {
     super(opts);
 
@@ -78,4 +78,4 @@ class UIControl extends BaseUIControl {
   }
 }
 
-export default Cloud;
+export default UE;

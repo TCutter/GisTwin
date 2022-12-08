@@ -17,11 +17,11 @@
     /**
      * 平移
      */
-    gotoFeat() {}
+    goto() {}
 
-    lookAtFeat() {}
+    lookAt() {}
 
-    focusToFeat() {}
+    focusTo() {}
 
     /**
      * 相机姿态调整
@@ -439,7 +439,9 @@
     /**
      * 获取图层
      */
-    getLayer() {}
+    getLayer(id) {
+      return this.layerList.find((layer) => layer.id === id);
+    }
 
     /**
      * 新增图层
@@ -471,7 +473,9 @@
     /**
      * 场景相机获取
      */
-    getCamera() {}
+    getCamera(id) {
+      return this.cameraList.find((camera) => camera.id === id);
+    }
 
     /**
      * 场景相机应用
@@ -506,7 +510,7 @@
     setUIControl() {}
   }
 
-  class Cloud extends BaseScene {
+  class UE extends BaseScene {
     constructor(opts = {}) {
       super(opts);
 
@@ -577,12 +581,13 @@
     }
   }
 
-  class Cloud$1 extends BaseScene {
+  class Cloud extends BaseScene {
     constructor(opts = {}) {
       super(opts);
       this._cloudUrl = opts.cloudUrl;
 
       this._webRtcApp = window.$WebRtcApp || {};
+      this._WebRtcApp.load(this._cloudUrl);
       this._webRtcApp.receivedMessagehandlerSet = this.dispatchEvent;
     }
 
@@ -657,13 +662,13 @@
   };
 
   class GisTwin {
-    constructor(options = {}) {
-      const type = (options.type || "cloud").toUpperCase();
+    constructor(opts = {}) {
+      const type = (opts.type || "cloud").toUpperCase();
       console.log(`渲染源为： %c${type}`, "color: red");
       if (type === MODE_TYPE.UE) {
-        return new Cloud(options);
+        return new UE(opts);
       } else if (type === MODE_TYPE.CLOUD) {
-        return new Cloud$1(options);
+        return new Cloud(opts);
       }
     }
   }

@@ -10,10 +10,10 @@
     window.onload = function () {
       var gisTwin = new GisTwin(
         {
-          type: "cloud",
+          type: "ue",
           cloudUrl: "htttp://www.baidu.com"
         }
-      )
+      )            
       gisTwin.sendMsg("scene", "addLayer", {}, e=> {
         console.log("addLayer callback", e)
       })

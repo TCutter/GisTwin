@@ -3,13 +3,13 @@ import Cloud from "../cloud";
 import { MODE_TYPE } from "../utils/const";
 
 class GisTwin {
-  constructor(options = {}) {
-    const type = (options.type || "cloud").toUpperCase();
+  constructor(opts = {}) {
+    const type = (opts.type || "cloud").toUpperCase();
     console.log(`渲染源为： %c${type}`, "color: red");
     if (type === MODE_TYPE.UE) {
-      return new UE(options);
+      return new UE(opts);
     } else if (type === MODE_TYPE.CLOUD) {
-      return new Cloud(options);
+      return new Cloud(opts);
     }
   }
 }
