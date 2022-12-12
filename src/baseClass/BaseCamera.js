@@ -1,3 +1,8 @@
+/**
+ * @class
+ * @classdesc 相机基类
+ * @namespace
+ */
 class BaseCamera {
   constructor(opts = {}) {
     this.id = opts.id;
@@ -15,6 +20,9 @@ class BaseCamera {
 
   lookAt() {}
 
+  /**
+   * 定位
+   */
   focusTo() {}
 
   /**
@@ -25,14 +33,26 @@ class BaseCamera {
     this._heading = heading;
   }
 
+  /**
+   *
+   * @param {*} pitch
+   */
   setPitch(pitch) {
     this._pitch = pitch;
   }
 
+  /**
+   *
+   * @param {*} roll
+   */
   setRoll(roll) {
     this._roll = roll;
   }
 
+  /**
+   *
+   * @param {*} position
+   */
   setPosition(position) {
     this._position = position;
   }
@@ -40,19 +60,30 @@ class BaseCamera {
   /**
    * 视口参数获取
    */
-
   getHeading() {
     return this._heading;
   }
 
+  /**
+   * 获取pitch
+   * @returns pitch
+   */
   getPitch() {
     return this._pitch;
   }
 
+  /**
+   * 获取roll
+   * @returns roll
+   */
   getRoll() {
     return this._roll;
   }
 
+  /**
+   * 获取position
+   * @returns position
+   */
   getPosition() {
     return this._position;
   }

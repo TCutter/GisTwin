@@ -18,11 +18,18 @@ const builds = [
   },
   {
     input: "src/index.js",
-    output: {
-      file: `dist/${packages.name}.min.js`,
-      format: "umd",
-      name: ModuleName,
-    },
+    output: [
+      {
+        file: `dist/${packages.name}.min.js`,
+        format: "umd",
+        name: ModuleName,
+      },
+      {
+        file: `dist/${packages.name}.cjs.js`,
+        format: "cjs",
+        name: ModuleName,
+      },
+    ],
     plugins: [
       resolve(),
       babel({

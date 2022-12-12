@@ -1,9 +1,15 @@
 import { EventDispatcher } from "../utils/EventDispatcher";
 
+/**
+ * @class
+ * @classdesc 场景基类
+ * @extends EventDispatcher
+ * @namespace
+ */
 class BaseScene extends EventDispatcher {
   constructor(opts = {}) {
     super();
-    this._type = opts.type; // 渲染类型
+    this.type = opts.type; // 渲染类型
 
     this.layerList = []; // 多个图层信息
     this.cameraList = []; // 多个相机信息
@@ -24,11 +30,10 @@ class BaseScene extends EventDispatcher {
       gisTwin.sendMsg("RegisterEvent", "beginPlay", () => {
         console.log("beginPlay")
       })
-   * @param {*} className
-   * @param {*} funcName
-   * @param {Object|Function} params
+   * @param {string} className
+   * @param {string} funcName
+   * @param {Object} params
    * @param {Fuction} callback
-   * 
    */
   sendMsg(className, funcName, params, callback) {
     // 事件监听
@@ -51,6 +56,11 @@ class BaseScene extends EventDispatcher {
     }
   }
 
+  /**
+   * 事件机制：发送消息到渲染源
+   * @param {string} cmd
+   * @param {Object} params
+   */
   sendMsgToRender(cmd, params) {}
 
   /**
@@ -85,6 +95,7 @@ class BaseScene extends EventDispatcher {
 
   /**
    * 删除图层
+   * @param {string} id
    */
   removeLayer(id) {
     let index = this.layerList.findIndex((layer) => layer.id == id);
@@ -99,6 +110,8 @@ class BaseScene extends EventDispatcher {
 
   /**
    * 场景相机获取
+   * @param {string} id
+   * @returns 相机实例
    */
   getCamera(id) {
     return this.cameraList.find((camera) => camera.id === id);
@@ -106,6 +119,7 @@ class BaseScene extends EventDispatcher {
 
   /**
    * 场景相机应用
+   * @param {string} id
    */
   setUsedCamera(id) {
     this.camera = this.cameraList.find((camera) => camera.id === id);
@@ -113,6 +127,7 @@ class BaseScene extends EventDispatcher {
 
   /**
    * 删除相机
+   * @param {string} id
    */
   removeCamera(id) {
     let index = this.cameraList.findIndex((camera) => camera.id === id);
@@ -127,6 +142,9 @@ class BaseScene extends EventDispatcher {
    */
   getEnvironment() {}
 
+  /**
+   *
+   */
   setFeature() {}
 
   /**
@@ -134,6 +152,9 @@ class BaseScene extends EventDispatcher {
    */
   setEnvironment() {}
 
+  /**
+   *
+   */
   setUIControl() {}
 }
 

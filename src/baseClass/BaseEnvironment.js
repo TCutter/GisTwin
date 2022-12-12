@@ -1,3 +1,8 @@
+/**
+ * @class
+ * @classdesc 全局环境配置基类
+ * @namespace
+ */
 class BaseEnvironment {
   constructor(opts = {}) {
     this._atmo = opts.atmo;
@@ -14,46 +19,79 @@ class BaseEnvironment {
 
   /**
    * 调整色彩参数
+   * @param {*} light
    */
   setLight(light) {
     this._light = light;
   }
 
+  /**
+   *
+   * @param {*} saturation
+   */
   setSaturation(saturation) {
     this._saturation = saturation;
   }
 
+  /**
+   *
+   * @param {*} contrast
+   */
   setContrast(contrast) {
     this._contrast = contrast;
   }
 
+  /**
+   * 获取light
+   * @returns light
+   */
   getLight() {
-    return this.light;
+    return this._light;
   }
 
+  /**
+   * 获取saturation
+   * @returns saturation
+   */
   getSaturation() {
     return this._saturation;
   }
 
+  /**
+   * 获取contrast
+   * @returns contrast
+   */
   getContrast() {
     return this._contrast;
   }
 
   /**
    * 场景环境参数
+   * @param {*} bloom
    */
   setBloom(bloom) {
     this._bloom = bloom;
   }
 
+  /**
+   *
+   */
   setHDR() {
     this._HDR = HDR;
   }
 
+  /**
+   * 获取bloom
+   * @returns bloom
+   */
   getBloom() {
     return this._bloom;
   }
 
+  /**
+   * 获取HDR
+   * @returns HDR
+   */
   getHDR() {
     return this._HDR;
   }
@@ -66,6 +104,10 @@ class BaseEnvironment {
     this._weather = weather;
   }
 
+  /**
+   * 获取天气
+   * @returns weather
+   */
   getWeather() {
     return this._weather;
   }

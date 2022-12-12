@@ -7,6 +7,11 @@ import {
   BaseScene,
 } from "../baseClass";
 
+/**
+ * @class
+ * @classdesc UE4
+ * @extends BaseScene
+ */
 class UE extends BaseScene {
   constructor(opts = {}) {
     super(opts);
@@ -43,18 +48,36 @@ class UE extends BaseScene {
   }
 }
 
+/**
+ * @class
+ * @classdesc 相机
+ * @extends BaseCamera
+ * @alias UeCamera
+ */
 class Camera extends BaseCamera {
   constructor(opts) {
     super(opts);
   }
 }
 
+/**
+ * @class
+ * @classdesc 全局环境
+ * @extends BaseEnvironment
+ * @alias UeEnvironment
+ */
 class Environment extends BaseEnvironment {
   constructor(opts) {
     super(opts);
   }
 }
 
+/**
+ * @class
+ * @classdesc 图层
+ * @extends BaseLayer
+ * @alias UeLayer
+ */
 class Layer extends BaseLayer {
   constructor(opts) {
     super(opts);
@@ -66,12 +89,24 @@ class Layer extends BaseLayer {
   }
 }
 
+/**
+ * @class
+ * @classdesc 对象管理
+ * @extends BaseFeature
+ * @alias UeFeature
+ */
 class Feature extends BaseFeature {
   constructor(opts) {
     super(opts);
   }
 }
 
+/**
+ * @class
+ * @classdesc UI控制对象
+ * @extends BaseUIControl
+ * @alias UeUIControl
+ */
 class UIControl extends BaseUIControl {
   constructor(opts) {
     super(opts);
