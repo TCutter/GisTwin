@@ -23,7 +23,3 @@
         });
     })(ue.interface),
   (ue4 = ue.interface.broadcast);
-
-export const initUE = () => {
-  let ue = {};
-};

@@ -6,6 +6,7 @@ import {
   BaseUIControl,
   BaseScene,
 } from "../baseClass";
+import webRtcApp from "../utils/webRtcApp";
 
 /**
  * @class
@@ -17,7 +18,7 @@ class Cloud extends BaseScene {
     super(opts);
     this._cloudUrl = opts.cloudUrl;
 
-    this._webRtcApp = window.$WebRtcApp || {};
+    this._webRtcApp = webRtcApp;
     this._WebRtcApp.load(this._cloudUrl);
     this._webRtcApp.receivedMessagehandlerSet = this.dispatchEvent;
   }
