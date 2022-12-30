@@ -1,4 +1,4 @@
 /node_modules
 /dist
-/out/*
+/gistwin-doc/*
 .DS_Store

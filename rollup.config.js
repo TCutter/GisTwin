@@ -1,5 +1,5 @@
 import resolve from "rollup-plugin-node-resolve";
-// import commonjs from "rollup-plugin-commonjs";
+import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { uglify } from "rollup-plugin-uglify";
 
@@ -14,7 +14,7 @@ const builds = [
       format: "umd",
       name: ModuleName,
     },
-    plugins: [resolve()],
+    plugins: [commonjs(), resolve()],
   },
   {
     input: "src/index.js",
@@ -31,6 +31,7 @@ const builds = [
       },
     ],
     plugins: [
+      commonjs(),
       resolve(),
       babel({
         exclude: "node_modules/**",
@@ -46,6 +47,7 @@ const builds = [
       format: "esm",
     },
     plugins: [
+      commonjs(),
       resolve(),
       babel({
         exclude: "node_modules/**",
